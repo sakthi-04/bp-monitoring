@@ -1,83 +1,391 @@
-body {
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.bp-page {
+    min-height: 100vh;
+    background-color: #eff1f5;
+    background-image: url(https://www.theaccesshealthcare.com/images/blog/know-your-blood-pressure-ranges.jpg);
+    padding: 100px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.bp-header {
+    max-width: 1400px;
+    margin: 0 auto 25px auto;
+}
+
+.bp-header h1 {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f5f9;
+    color: #1f2937;
+    font-size: 32px;
 }
 
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
+.bp-header p {
+    color: #6b7280;
+    margin-top: 8px;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
+
+/* =========================================================
+   MAIN 50 / 50 LAYOUT
+========================================================= */
+
+.bp-main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
 }
 
-.form-card,
-.list-card {
-    background: white;
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.bp-card {
+    background-color: #ffffff;
+
+    border-radius: 12px;
+
     padding: 25px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+}
+
+.bp-card h2 {
+    margin-top: 0;
+
+    color: #1f2937;
+
     margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+    margin-bottom: 20px;
 }
 
-label {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-weight: bold;
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    color: #374151;
 }
 
-input {
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
-    padding: 12px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #1976d2;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background: #125ca3;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-table {
+.form-group input {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
 
-th,
-td {
     padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+
+    outline: none;
 }
 
-th {
-    background: #1976d2;
+.form-group input:focus {
+    border-color: #2563eb;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
     color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* Primary */
+
+.btn-primary {
+    background-color: #2563eb;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #1d4ed8;
+}
+
+
+/* Secondary */
+
+.btn-secondary {
+    background-color: #6b7280;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+
+/* Success */
+
+.btn-success {
+    background-color: #16a34a;
+}
+
+.btn-success:hover:not(:disabled) {
+    background-color: #15803d;
+}
+
+
+/* Register Button */
+
+.register-button {
+    width: 100%;
+
+    padding: 13px;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-container {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.search-container input:focus {
+    border-color: #2563eb;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.table-container th {
+    padding: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    text-align: left;
+
+    background-color: #f3f4f6;
+
+    color: #374151;
+
+    font-weight: 600;
+}
+
+.table-container td {
+    padding: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    color: #374151;
+}
+
+.table-container tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+
+/* No Records */
+
+.no-records {
+    padding: 30px !important;
+
+    text-align: center;
+
+    color: #6b7280 !important;
+}
+
+
+/* =========================================================
+   ADD NEW VALUE BUTTON
+========================================================= */
+
+.add-value-button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   POPUP OVERLAY
+========================================================= */
+
+.popup-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   POPUP BOX
+========================================================= */
+
+.popup-box {
+    width: 400px;
+
+    max-width: 90%;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    box-sizing: border-box;
+}
+
+.popup-box h2 {
+    margin-top: 0;
+
+    margin-bottom: 25px;
+
+    color: #1f2937;
+}
+
+
+/* =========================================================
+   POPUP BUTTONS
+========================================================= */
+
+.popup-buttons {
+    display: flex;
+
+    gap: 10px;
+}
+
+.popup-buttons .btn {
+    flex: 1;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .bp-main-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .bp-page {
+        padding: 15px;
+    }
+
+    .bp-header h1 {
+        font-size: 26px;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+
+    .search-container .btn {
+        width: 100%;
+    }
+
 }
