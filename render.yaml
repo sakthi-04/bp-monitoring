@@ -1,17 +1,13 @@
 services:
 
-  # =========================
-  # Spring Boot Backend
-  # =========================
+  # Backend
   - type: web
     name: bp-backend
     runtime: docker
     region: singapore
     plan: free
-
     rootDir: backend
     dockerfilePath: Dockerfile
-    dockerContext: .
 
     envVars:
       - key: DB_HOST
@@ -39,23 +35,69 @@ services:
           name: bp-database
           property: password
 
-  # =========================
-  # React Frontend
-  # =========================
+
+  # Frontend
   - type: web
     name: bp-frontend
     runtime: static
-    region: singapore
-    plan: free
-
     rootDir: frontend
     buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    staticPublishPath: dist
 
 
 databases:
-
   - name: bp-database
-    region: singapore
     databaseName: bp_database
     user: bp_user
+    plan: basic-256mbservices:
+
+  # Backend
+  - type: web
+    name: bp-backend
+    runtime: docker
+    region: singapore
+    plan: free
+    rootDir: backend
+    dockerfilePath: Dockerfile
+
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: bp-database
+          property: host
+
+      - key: DB_PORT
+        fromDatabase:
+          name: bp-database
+          property: port
+
+      - key: DB_NAME
+        fromDatabase:
+          name: bp-database
+          property: database
+
+      - key: DB_USER
+        fromDatabase:
+          name: bp-database
+          property: user
+
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: bp-database
+          property: password
+
+
+  # Frontend
+  - type: web
+    name: bp-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+
+
+databases:
+  - name: bp-database
+    databaseName: bp_database
+    user: bp_user
+    plan: basic-256mb
