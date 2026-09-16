@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./BPRecording.css";
 
-const API_URL = "http://localhost:8080/api/bp";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/bp`;
 
 function BPRecording() {
     const [patientId, setPatientId] = useState("");
