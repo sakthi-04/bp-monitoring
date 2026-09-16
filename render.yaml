@@ -1,19 +1,17 @@
 services:
 
-  # ==========================
+  # =========================
   # Spring Boot Backend
-  # ==========================
+  # =========================
   - type: web
     name: bp-backend
-    runtime: java
+    runtime: docker
     region: singapore
     plan: free
 
     rootDir: backend
-
-    buildCommand: ./mvnw clean package -DskipTests
-
-    startCommand: java -jar target/*.jar
+    dockerfilePath: Dockerfile
+    dockerContext: .
 
     envVars:
       - key: DB_HOST
@@ -41,30 +39,23 @@ services:
           name: bp-database
           property: password
 
-
-  # ==========================
+  # =========================
   # React Frontend
-  # ==========================
+  # =========================
   - type: web
     name: bp-frontend
     runtime: static
+    region: singapore
     plan: free
 
     rootDir: frontend
-
     buildCommand: npm install && npm run build
-
     staticPublishPath: ./dist
 
 
-# ==========================
-# PostgreSQL
-# ==========================
 databases:
 
   - name: bp-database
     region: singapore
-    plan: free
     databaseName: bp_database
     user: bp_user
-    postgresMajorVersion: "18"
