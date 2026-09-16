@@ -5,7 +5,8 @@
 .bp-page {
     min-height: 100vh;
     background-color: #eff1f5;
-    background-image: url(https://www.theaccesshealthcare.com/images/blog/know-your-blood-pressure-ranges.jpg);
+    background-image: url(https://img.magnific.com/free-photo/young-male-psysician-with-patient-measuring-blood-pressure_1303-17877.jpg?semt=ais_hybrid&w=740&q=80);
+    background-size: cover;
     padding: 100px;
     box-sizing: border-box;
 }
@@ -56,6 +57,8 @@
     background-color: #ffffff;
 
     border-radius: 12px;
+
+    height: fit-content;
 
     padding: 25px;
 
